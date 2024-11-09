@@ -1,0 +1,21 @@
+<!-- inventory_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory List</title>
+</head>
+<body>
+    <h1>Inventory List</h1>
+    <ul>
+    {% for item in items %}
+        <li>{{ item.name }} - {{ item.quantity }}</li>
+        <p>{{ item.description }}</p>
+        <a href="{% url 'update_inventory_item' item.pk %}">Update</a> | <a href="{% url 'delete_inventory_item' item.pk %}">Delete</a>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'add_inventory_item' %}">Add New Item</a>
+</body>
+</html>
+
